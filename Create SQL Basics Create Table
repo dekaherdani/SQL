@@ -1,0 +1,95 @@
+# SQL
+SQL Query
+
+create table EmployeeDemographics
+(EmployeeID int,
+FirstName varchar(50),
+LastName varchar(50),
+Age int,
+Gender Varchar(50)
+)
+
+Create table EmployeeSalary
+(EmployeeID int,
+JobTitle varchar(50),
+Salary int)
+
+insert into EmployeeDemographics Values
+(1002, 'Pam', 'Beasley', 30, 'Female'),
+(1003, 'Dwight', 'Schrute', 29, 'Male'),
+(1004, 'Angela', 'Martin', 31, 'Female'),
+(1005, 'Toby', 'Flenderson', 32, 'Male'),
+(1006, 'Michael', 'Scott', 35, 'Male'),
+(1007, 'Meredith', 'Palmer', 32, 'Female'),
+(1008, 'Stanley', 'Hudson', 38, 'Male'),
+(1009, 'Kevin', 'Malone', 31, 'Male')
+
+insert into EmployeeSalary Values
+(1001, 'Salesman', 45000),
+(1002, 'Receptionist', 36000),
+(1003, 'Salesman', 63000),
+(1004, 'Accountant', 47000),
+(1005, 'HR', 50000),
+(1006, 'Regional Manager', 65000),
+(1007, 'Supplier Relations', 41000),
+(1008, 'Salesman', 48000),
+(1009, 'Accountant', 42000)
+
+delete from EmployeeSalary 
+where employeeid = 1001;
+
+select * from EmployeeDemographics
+select * from EmployeeSalary
+
+/* Select Statement */
+
+Select distinct(Gender)
+from EmployeeDemographics
+
+select count(LastName) as "LastNameCount"
+from EmployeeDemographics
+
+select max(salary)
+ from EmployeeSalary
+
+select min(salary)
+ from EmployeeSalary
+ 
+ select avg(salary) as average, max(salary) as maximumg,
+ min(salary) as minimum
+ from EmployeeSalary
+ 
+ /* Where Statement */
+ /* <> adalah yang bukan */
+ select *
+ from EmployeeDemographics
+ where Firstname <> 'Jim'
+ 
+ select *
+ from EmployeeDemographics
+ where age >= 30 or gender = 'Male'
+ order by age
+ 
+ select *
+ from EmployeeDemographics
+ where lastname like 'S%o%'
+ 
+select *
+ from EmployeeDemographics
+ where Firstname is not null
+ 
+ select *
+ from EmployeeDemographics
+ where firstname in ('Jim','Michael')
+ 
+ /* Group by and order by statements */
+ select gender, count(gender) as CountGender
+ from EmployeeDemographics
+ where age >30
+ group by gender
+ order by CountGender desc
+ 
+ /* number 4 after order by mean column numb 4 */
+ select *
+ from EmployeeDemographics
+ order by 4 desc
