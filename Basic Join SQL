@@ -1,0 +1,39 @@
+Select * from employeedemographics
+Select * from employeesalary
+
+insert into EmployeeDemographics Values
+(NULL, 'Pam', 'Beasley', 30, 'Female')
+
+insert into employeesalary Values
+(2001, 'Salesman', 45000),
+(2002, 'HR', 45000)
+
+
+/* Inner Join */
+select *
+from employeedemographics
+inner join employeesalary
+	on employeedemographics.employeeid = employeesalary.employeeid
+
+/* outer join */
+select *
+from employeedemographics
+full outer join employeesalary
+	on employeedemographics.employeeid = employeesalary.employeeid
+
+/* left outer join */
+select *
+from employeedemographics
+left outer join employeesalary
+	on employeedemographics.employeeid = employeesalary.employeeid
+
+/* right outer join */
+select *
+from employeedemographics
+right outer join employeesalary
+	on employeedemographics.employeeid = employeesalary.employeeid
+
+select employeedemographics.employeeID, firstname, lastname, jobtitle, salary
+from employeedemographics
+inner join employeesalary
+	on employeedemographics.employeeID = employeesalary.employeeID
